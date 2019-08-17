@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header_title %} Boggle {% endblock %}
+
+{% block title %} Boggle {% endblock %}
+
+{% block content %} 
+
+<table>
+  {% for row in board %} 
+  <tr> {% for letter in row %} <!-- doing logic with Jinja -->
+    <td> {{ letter }} </td> <!-- passing in variables-->
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+
+
+<form action="/" method="POST">
+  <p>Guess word: <input type="text" name="guess" id="guess"></p>
+  <input type="submit" id="submit-button" value="Submit">
+</form>
+
+<p id="message"></p>
+<p id="score"></p>
+
+{% endblock %}
